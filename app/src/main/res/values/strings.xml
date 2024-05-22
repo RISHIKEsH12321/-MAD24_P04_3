@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">TravelHub</string>
+    <string name="converter_name">Currency\nConverter</string>
+    <string name="fromamount">From</string>
+    <string name="toamount">To</string>
+    <string name="result">Result</string>
+    <string name="startcountry">Algeria</string>
+    <string name="endcountry">Brazil</string>
+    <string-array name="currencies">
+        <item>SGD</item>
+        <item>MYR</item>
+        <item>EUR</item>
+        <item>USD</item>
+        <item>AUD</item>
+        <item>JPY</item>
+        <item>CNH</item>
+        <item>HKD</item>
+        <item>CAD</item>
+        <item>INR</item>
+        <item>DKK</item>
+        <item>GBP</item>
+        <item>RUB</item>
+        <item>NZD</item>
+        <item>MXN</item>
+        <item>IDR</item>
+        <item>TWD</item>
+        <item>THB</item>
+        <item>VND</item>
+    </string-array>
 </resources>
