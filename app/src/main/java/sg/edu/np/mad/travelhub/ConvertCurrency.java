@@ -1,13 +1,19 @@
 package sg.edu.np.mad.travelhub;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -18,6 +24,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 
 public class ConvertCurrency extends AppCompatActivity {
+
+    SwitchCompat switchmode;
+    boolean nightmode;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +42,7 @@ public class ConvertCurrency extends AppCompatActivity {
             return insets;
         });
 
+        //Add dropdown options
         // Initialize the adapter
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.currencies, android.R.layout.simple_spinner_item);
@@ -44,6 +56,31 @@ public class ConvertCurrency extends AppCompatActivity {
         Spinner endSpinner = findViewById(R.id.end);
         endSpinner.setAdapter(adapter);
 
+        //Themes
+        switchmode = findViewById(R.id.switchmode);
+        sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
+        nightmode = sharedPreferences.getBoolean("nightmode", false);
+        if (nightmode){
+            switchmode.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        switchmode.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if (nightmode){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("nightmode", false);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("nightmode", true);
+                }
+                editor.apply();
+            }
+        });
+
+        //Call API
         // Get IDs
         Button button = findViewById(R.id.button);
         EditText inputEditText = findViewById(R.id.inputconverter);
@@ -60,7 +97,7 @@ public class ConvertCurrency extends AppCompatActivity {
                 OkHttpClient client = new OkHttpClient();
 
                 Request request = new Request.Builder()
-                        .url("https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=USD&to=EUR&amount=750")
+                        .url("https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=" + startCurrency + "&to=" + endCurrency + "&amount=" + amount)
                         .get()
                         .addHeader("X-RapidAPI-Key", "895d045db7msh990d79ec4410e81p18fab6jsnc37612f63fe5")
                         .addHeader("X-RapidAPI-Host", "currency-conversion-and-exchange-rates.p.rapidapi.com")
@@ -73,6 +110,8 @@ public class ConvertCurrency extends AppCompatActivity {
                 } catch (IOException e) {
                     result = 0.0;
                 }
+                TextView calculatedAmtTextView = findViewById(R.id.calculatedamt);
+                calculatedAmtTextView.setText(String.valueOf(result));
             }
         });
     }

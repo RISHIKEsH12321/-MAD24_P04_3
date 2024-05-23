@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".ConvertCurrency">
 
     <Spinner
@@ -12,7 +13,6 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:prompt="@string/startcountry"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -29,7 +29,7 @@
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFA31A"
+        style="@style/PrimaryTextColor"
         android:textSize="40sp"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +65,6 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
-        android:prompt="@string/endcountry"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -93,7 +92,7 @@
         android:layout_marginEnd="55dp"
         android:paddingStart="10dp"
         android:hint="Amount"
-        android:background="@color/light_grey"
+        style="@style/InputBox"
         android:textAlignment="viewStart"
         android:textSize="19sp"
         android:inputType="numberDecimal"
@@ -108,7 +107,6 @@
         android:layout_marginBottom="28dp"
         android:textSize="24sp"
         android:text="Convert"
-        android:backgroundTint="#FFA31A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -121,11 +119,22 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="55dp"
         android:hint="Calculated Amount"
-        android:background="@color/light_grey"
+        style="@style/InputBox"
         android:paddingStart="10dp"
         android:textSize="19sp"
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultconverter" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchmode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="231dp"
+        android:thumb="@drawable/thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:track="@drawable/track" />
 </androidx.constraintlayout.widget.ConstraintLayout>
