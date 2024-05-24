@@ -5,10 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,9 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -94,24 +99,55 @@ public class ConvertCurrency extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                OkHttpClient client = new OkHttpClient();
 
-                Request request = new Request.Builder()
-                        .url("https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=" + startCurrency + "&to=" + endCurrency + "&amount=" + amount)
-                        .get()
-                        .addHeader("X-RapidAPI-Key", "895d045db7msh990d79ec4410e81p18fab6jsnc37612f63fe5")
-                        .addHeader("X-RapidAPI-Host", "currency-conversion-and-exchange-rates.p.rapidapi.com")
-                        .build();
+                // Get IDs
+                EditText inputEditText = findViewById(R.id.inputconverter);
+                Spinner startSpinner = findViewById(R.id.start);
+                Spinner endSpinner = findViewById(R.id.end);
 
-                Double result;
+                // Get text and selected items
+                String amount = inputEditText.getText().toString();
+                String startCurrency = startSpinner.getSelectedItem().toString();
+                String endCurrency = endSpinner.getSelectedItem().toString();
 
-                try {
-                    result = Double.parseDouble(client.newCall(request).execute().body().string());
-                } catch (IOException e) {
-                    result = 0.0;
+                // Check for errors
+                if (amount.isEmpty() || startCurrency.isEmpty() || endCurrency.isEmpty()) {
+                    // Handle error
+                    return;
                 }
-                TextView calculatedAmtTextView = findViewById(R.id.calculatedamt);
-                calculatedAmtTextView.setText(String.valueOf(result));
+
+                // Make API request in a separate thread
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        OkHttpClient client = new OkHttpClient();
+
+                        Request request = new Request.Builder()
+                                .url("https://currency-conversion-and-exchange-rates.p.rapidapi.com/convert?from=" + startCurrency + "&to=" + endCurrency + "&amount=" + amount)
+                                .get()
+                                .addHeader("X-RapidAPI-Key", "895d045db7msh990d79ec4410e81p18fab6jsnc37612f63fe5")
+                                .addHeader("X-RapidAPI-Host", "currency-conversion-and-exchange-rates.p.rapidapi.com")
+                                .build();
+
+                        try {
+                            String response = client.newCall(request).execute().body().string();
+                            // Parse JSON response
+                            JSONObject jsonObject = new JSONObject(response);
+                            final Double result = jsonObject.getDouble("result");
+
+                            // Update UI in the main thread
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    TextView calculatedAmtTextView = findViewById(R.id.calculatedamt);
+                                    calculatedAmtTextView.setText(String.valueOf(result));
+                                }
+                            });
+                        } catch (IOException | JSONException e) {
+                            Toast.makeText(getApplicationContext(), "Error making API request or parsing JSON", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }).start();
             }
         });
     }
