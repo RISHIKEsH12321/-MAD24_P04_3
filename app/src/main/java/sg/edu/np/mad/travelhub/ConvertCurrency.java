@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.view.View;
 import android.widget.Button;
@@ -47,7 +46,6 @@ public class ConvertCurrency extends AppCompatActivity {
             return insets;
         });
 
-        //Add dropdown options
         // Initialize the adapter
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.currencies, android.R.layout.simple_spinner_item);
@@ -61,45 +59,56 @@ public class ConvertCurrency extends AppCompatActivity {
         Spinner endSpinner = findViewById(R.id.end);
         endSpinner.setAdapter(adapter);
 
-        //Themes
+        // Set the adapter for themes
+        ArrayAdapter<CharSequence> themeadapter = ArrayAdapter.createFromResource(this,
+                R.array.themes, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner themesSpinner = findViewById(R.id.colour_themes);
+        themesSpinner.setAdapter(themeadapter);
+
+        // Black and Light Mode
         switchmode = findViewById(R.id.switchmode);
         sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
         nightmode = sharedPreferences.getBoolean("nightmode", false);
-        if (nightmode){
+
+        // Set the custom drawables for the switch thumb and track
+        switchmode.setThumbResource(R.drawable.thumb);
+        switchmode.setTrackResource(R.drawable.track);
+
+        // Set the switch state and app mode based on saved preference
+        if (nightmode) {
             switchmode.setChecked(true);
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            switchmode.setChecked(false);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-        switchmode.setOnClickListener(new View.OnClickListener(){
+
+        // Set up the switch click listener
+        switchmode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
-                if (nightmode){
+            public void onClick(View view) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                if (nightmode) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                    editor = sharedPreferences.edit();
                     editor.putBoolean("nightmode", false);
+                    nightmode = false;
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                    editor = sharedPreferences.edit();
                     editor.putBoolean("nightmode", true);
+                    nightmode = true;
                 }
                 editor.apply();
             }
         });
 
-        //Call API
-        // Get IDs
-        Button button = findViewById(R.id.button);
-        EditText inputEditText = findViewById(R.id.inputconverter);
+        // Call API
+        Button button = findViewById(R.id.convertbutton);
 
-        String amount = inputEditText.getText().toString();
-        String startCurrency = startSpinner.getSelectedItem().toString();
-        String endCurrency = endSpinner.getSelectedItem().toString();
-
-
-        // Set a click listener on the button
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Get IDs
                 EditText inputEditText = findViewById(R.id.inputconverter);
                 Spinner startSpinner = findViewById(R.id.start);
@@ -110,9 +119,22 @@ public class ConvertCurrency extends AppCompatActivity {
                 String startCurrency = startSpinner.getSelectedItem().toString();
                 String endCurrency = endSpinner.getSelectedItem().toString();
 
-                // Check for errors
+                // Error handling
                 if (amount.isEmpty() || startCurrency.isEmpty() || endCurrency.isEmpty()) {
                     // Handle error
+                    return;
+                }
+
+                float amountValue;
+                try {
+                    amountValue = Float.parseFloat(amount);
+                } catch (NumberFormatException e) {
+                    Toast.makeText(getApplicationContext(), "Invalid amount", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (amountValue == 0) {
+                    Toast.makeText(getApplicationContext(), "Invalid amount", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -131,11 +153,9 @@ public class ConvertCurrency extends AppCompatActivity {
 
                         try {
                             String response = client.newCall(request).execute().body().string();
-                            // Parse JSON response
                             JSONObject jsonObject = new JSONObject(response);
                             final Double result = jsonObject.getDouble("result");
 
-                            // Update UI in the main thread
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -144,7 +164,12 @@ public class ConvertCurrency extends AppCompatActivity {
                                 }
                             });
                         } catch (IOException | JSONException e) {
-                            Toast.makeText(getApplicationContext(), "Error making API request or parsing JSON", Toast.LENGTH_SHORT).show();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(getApplicationContext(), "Error making API request", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                         }
                     }
                 }).start();
