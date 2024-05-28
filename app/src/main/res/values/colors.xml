@@ -2,11 +2,22 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name = "grey">#FF808080</color>
+    <color name="grey">#FF808080</color>
     <color name="light_grey">#FFD3D3D3</color>
-    <color name = "main_orange">#FFFFA31A</color>
-    <color name = "wm_green">#FF75B855</color>
-    <color name = "wm_red">#FFDB6161</color>
-    <color name = "nn_pink">#FFFE39A4</color>
-    <color name = "nn_cyan">#FF53E4D4</color>
+    <color name="main_orange">#FFFFA31A</color>
+
+    <color name="nn_pink">#FE39A4</color>
+    <color name="nn_cyan">#53E4D4</color>
+
+    <color name="wm_green">#75B855</color>
+    <color name="wm_red">#DB6161</color>
+
+    <color name="pro_purple">#FF6969B4</color>
+    <color name="pro_orange">#F1810B</color>
+
+    <color name="deu_yellow">#F6D91F</color>
+    <color name="deu_blue">#60B0FF</color>
+
+    <color name="tri_orange">#D86F00</color>
+    <color name="tri_green">#179C00</color>
 </resources>

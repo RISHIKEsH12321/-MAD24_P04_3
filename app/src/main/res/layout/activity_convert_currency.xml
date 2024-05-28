@@ -29,7 +29,7 @@
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        style="@style/PrimaryTextColor"
+        android:textColor="@color/main_orange"
         android:textSize="40sp"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"

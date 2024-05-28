@@ -2,7 +2,9 @@ package sg.edu.np.mad.travelhub;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,7 +34,6 @@ public class ConvertCurrency extends AppCompatActivity {
     SwitchCompat switchmode;
     boolean nightmode;
     SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class ConvertCurrency extends AppCompatActivity {
             return insets;
         });
 
+        //Light & Dark Mode
         // Initialize the adapter
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.currencies, android.R.layout.simple_spinner_item);
@@ -103,9 +105,61 @@ public class ConvertCurrency extends AppCompatActivity {
             }
         });
 
-        // Call API
-        Button button = findViewById(R.id.convertbutton);
+        //Change Themes Function
+        // Get IDs for all needed elements
+        SharedPreferences preferences = getSharedPreferences("spinner_preferences", MODE_PRIVATE);
+        int selectedPosition = preferences.getInt("selected_spinner_position", 0);
+        themesSpinner.setSelection(selectedPosition);
 
+        Button button = findViewById(R.id.convertbutton);
+        TextView title = findViewById(R.id.convertertitle);
+        themesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Use Shared Preference to save the Spinner setting
+                SharedPreferences preferences = getSharedPreferences("spinner_preferences", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putInt("selected_spinner_position", position);
+                editor.apply();
+
+                // Get input from Spinner
+                String selectedTheme = parent.getItemAtPosition(position).toString();
+
+                // Apply the selected theme
+                getTheme().applyStyle(R.style.Base_Theme_TravelHub, true);
+                switch (selectedTheme) {
+                    case "Default":
+                        button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
+                        title.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.main_orange)));
+                        break;
+                    case "Watermelon":
+                        button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.wm_green)));
+                        title.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.wm_green)));
+                        break;
+                    case "Neon":
+                        button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.nn_pink)));
+                        title.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.nn_pink)));
+                        break;
+                    case "Protanopia":
+                        button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.pro_purple)));
+                        title.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.pro_purple)));
+                        break;
+                    case "Deuteranopia":
+                        button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.deu_yellow)));
+                        title.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.deu_yellow)));
+                        break;
+                    case "Tritanopia":
+                        button.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.tri_orange)));
+                        title.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.tri_orange)));
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        // Call API
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

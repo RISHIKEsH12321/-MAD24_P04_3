@@ -4,14 +4,13 @@
     <string name="fromamount">From</string>
     <string name="toamount">To</string>
     <string name="result">Result</string>
-    <string name="startcountry">Algeria</string>
-    <string name="endcountry">Brazil</string>
     <string-array name = "themes">
+        <item>Default</item>
+        <item>Watermelon</item>
+        <item>Neon</item>
         <item>Protanopia</item>
         <item>Deuteranopia</item>
         <item>Tritanopia</item>
-        <item>Watermelon</item>
-        <item>Neon</item>
     </string-array>
     <string-array name="currencies">
         <item>AED</item>
