@@ -1,153 +1,159 @@
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    >
 
-    tools:context=".ConvertCurrency">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        tools:context=".ConvertCurrency">
 
-    <Spinner
-        android:id="@+id/end"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:spinnerMode="dropdown"
-        style = "@style/SpinnerExpand"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/to" />
+        <Spinner
+            android:id="@+id/end"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown"
+            style = "@style/SpinnerExpand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/to" />
 
-    <TextView
-        android:id="@+id/convertertitle"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/converter_name"
-        android:textAlignment="viewStart"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/main_orange"
-        android:textSize="40sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/convertertitle"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/converter_name"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/main_orange"
+            android:textSize="40sp"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/from"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:text="@string/fromamount"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.157"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/convertertitle" />
+
+        <TextView
+            android:id="@+id/to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/toamount"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.145"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/start" />
+
+        <Spinner
+            android:id="@+id/start"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dropdown"
+            style = "@style/SpinnerExpand"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/from" />
+
+        <TextView
+            android:id="@+id/resultconverter"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="25dp"
+            android:text="Result"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputconverter" />
+
+        <EditText
+            android:id="@+id/inputconverter"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="55dp"
+            android:paddingStart="10dp"
+            android:hint="Amount"
+            style="@style/InputBox"
+            android:textAlignment="viewStart"
+            android:textSize="19sp"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/end" />
+
+        <Button
+            android:id="@+id/convertbutton"
+            android:layout_width="300sp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="28dp"
+            android:textSize="24sp"
+            android:text="Convert"
+            app:layout_constraintTop_toBottomOf="@id/calculatedamt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="60dp"
+            />
+
+        <TextView
+            android:id="@+id/calculatedamt"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="55dp"
+            android:hint="Calculated Amount"
+            style="@style/InputBox"
+            android:paddingStart="10dp"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultconverter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavMenu"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:text="@string/fromamount"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/convertertitle" />
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:layout_marginBottom="-18dp"
+        app:itemIconSize="35dp"
+        app:itemIconTint="@drawable/bottom_nav_item_selector"
+        app:itemActiveIndicatorStyle="@android:color/transparent"
+        app:itemRippleColor="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu"
+        />
 
-    <TextView
-        android:id="@+id/to"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:text="@string/toamount"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/start" />
-
-    <Spinner
-        android:id="@+id/start"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:spinnerMode="dropdown"
-        style = "@style/SpinnerExpand"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/from" />
-
-    <TextView
-        android:id="@+id/resultconverter"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="25dp"
-        android:text="Result"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputconverter" />
-
-    <EditText
-        android:id="@+id/inputconverter"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="55dp"
-        android:paddingStart="10dp"
-        android:hint="Amount"
-        style="@style/InputBox"
-        android:textAlignment="viewStart"
-        android:textSize="19sp"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/end" />
-
-    <Button
-        android:id="@+id/convertbutton"
-        android:layout_width="300sp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="28dp"
-        android:textSize="24sp"
-        android:text="Convert"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/calculatedamt"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="55dp"
-        android:hint="Calculated Amount"
-        style="@style/InputBox"
-        android:paddingStart="10dp"
-        android:textSize="19sp"
-        android:gravity="center_vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultconverter" />
-
-    <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switchmode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="231dp"
-        android:thumb="@drawable/thumb"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:track="@drawable/track" />
-
-    <Spinner
-        android:id="@+id/colour_themes"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="20dp"
-        style = "@style/SpinnerExpand"
-        app:layout_constraintBottom_toTopOf="@+id/convertbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/EPmain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".EditProfile">
+
+        <TextView
+            android:id="@+id/pageHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="25sp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+             />
+
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="192dp"
+            android:layout_height="192dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_profile"
+            app:layout_constraintTop_toBottomOf="@id/pageHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/doneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="8mm"
+            android:layout_marginTop="0dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_medium"
+            android:backgroundTint="@color/orange"
+            android:text="Done"
+            app:layout_constraintStart_toEndOf="@id/pageHeader"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+
+        <TextView
+            android:id="@+id/editNameHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/orange"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Name"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profilePic"/>
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:background="@drawable/profileinput_bg"
+            app:layout_constraintStart_toStartOf="@id/editNameHeader"
+            app:layout_constraintTop_toBottomOf="@id/editNameHeader"/>
+
+
+        <TextView
+            android:id="@+id/editDescriptionHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/orange"
+            android:text="Description"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/editName"
+            app:layout_constraintTop_toBottomOf="@id/editName"/>
+
+        <EditText
+            android:id="@+id/editDescription"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:background="@drawable/profileinput_bg"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintStart_toStartOf="@id/editDescriptionHeader"
+            app:layout_constraintTop_toBottomOf="@id/editDescriptionHeader"/>
+
+        <TextView
+            android:id="@+id/editIDHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/orange"
+            android:text="ID"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/editDescription"
+            app:layout_constraintTop_toBottomOf="@id/editDescription"/>
+
+        <EditText
+            android:id="@+id/editID"
+            android:layout_width="289dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:background="@drawable/profileinput_bg"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintStart_toStartOf="@id/editIDHeader"
+            app:layout_constraintTop_toBottomOf="@id/editIDHeader"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

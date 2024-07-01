@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register">
+
+    <TextView
+        android:id = "@+id/titlecenter"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="PlanHub"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:textColor="#ffa31a"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ARBoxEmail"
+        android:layout_gravity="center"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_done">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/LetEmail"
+            android:hint="@string/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_gravity="center"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        app:boxCornerRadiusBottomEnd="16dp"
+        app:boxCornerRadiusBottomStart="16dp"
+        app:boxCornerRadiusTopEnd="16dp"
+        app:boxCornerRadiusTopStart="16dp"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/LetPassword"
+            android:hint="@string/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:layout_marginHorizontal="25dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textSize="16sp"
+        android:layout_marginRight="5dp"/>
+
+    <TextView
+        android:id="@+id/LtvLoginHere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/LbtnRegister"
+        android:layout_gravity="center"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="@string/register"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:backgroundTint="#ffa31a" />
+
+</LinearLayout>

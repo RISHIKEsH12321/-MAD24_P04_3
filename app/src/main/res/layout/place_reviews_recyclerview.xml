@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="40dp"
+    >
+
+    <TextView
+        android:id="@+id/relativeTimeDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="a year ago"
+        android:textSize="16sp"
+        android:textColor="@color/view_place_font_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/reviewRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-50dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:padding="0dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:progressTint="@color/main_app_orange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relativeTimeDescription" />
+
+    <ImageView
+        android:id="@+id/profileImg"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/circular_btn_bg"
+        android:backgroundTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reviewRating" />
+
+    <TextView
+        android:id="@+id/authorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="MyNameIsName"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImg"
+        app:layout_constraintStart_toEndOf="@id/profileImg"
+        app:layout_constraintTop_toTopOf="@+id/profileImg" />
+
+    <TextView
+        android:id="@+id/reviewContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profileImg"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/sample_text"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

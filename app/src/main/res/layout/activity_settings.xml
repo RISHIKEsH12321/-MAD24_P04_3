@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Smain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Settings">
+
+        <TextView
+            android:id="@+id/themesheader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="70dp"
+            android:text="Themes"
+            android:textSize="18dp"
+            android:textColor="@color/orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/epBody"
+            android:fontFamily="@font/roboto_bold" />
+
+        <Spinner
+            android:id="@+id/colour_themes"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            style = "@style/SpinnerExpand"
+            app:layout_constraintTop_toBottomOf="@+id/themesheader"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/pageHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="25sp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pageHeader"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@+id/mpnHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/orange"
+            android:text="Mobile push notifications"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pageHeader"/>
+
+        <TextView
+            android:id="@+id/mpnBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:text="Receive push notifications on\ncomments"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/mpnHeader"
+            app:layout_constraintTop_toBottomOf="@id/mpnHeader"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/mpnButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:thumbTint="@color/orange"
+            android:layout_marginEnd="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/mpnHeader" />
+
+        <TextView
+            android:id="@+id/asHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:textColor="@color/orange"
+            android:text="Application sounds"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="@id/mpnHeader"
+            app:layout_constraintTop_toBottomOf="@id/mpnBody"/>
+
+        <TextView
+            android:id="@+id/asBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
+            android:text="Activate sound effects in\napplication"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/asHeader"
+            app:layout_constraintTop_toBottomOf="@id/asHeader"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/asButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:thumbTint="@color/orange"
+            android:layout_marginEnd="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/asHeader" />
+
+        <TextView
+            android:id="@+id/baHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:textColor="@color/orange"
+            android:text="Biometric authentication"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="@id/asHeader"
+            app:layout_constraintTop_toBottomOf="@id/asBody"/>
+
+        <TextView
+            android:id="@+id/baBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
+            android:text="Unlock the app with your\nbiometrics"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/baHeader"
+            app:layout_constraintTop_toBottomOf="@id/baHeader"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/baButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:thumbTint="@color/orange"
+            android:layout_marginEnd="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/baHeader" />
+
+        <TextView
+            android:id="@+id/ltgcHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:textColor="@color/orange"
+            android:text="Link to Google Calendar"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="@id/mpnHeader"
+            app:layout_constraintTop_toBottomOf="@id/baBody"/>
+
+        <TextView
+            android:id="@+id/ltgcBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
+            android:text="Link Google account"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/ltgcHeader"
+            app:layout_constraintTop_toBottomOf="@id/ltgcHeader"/>
+
+        <Button
+            android:id="@+id/ltgcButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:backgroundTint="@color/orange"
+            android:text="Link"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_marginEnd="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ltgcHeader" />
+
+        <TextView
+            android:id="@+id/epHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:textColor="@color/orange"
+            android:text="Manage Account"
+            android:textSize="18sp"
+            android:fontFamily="@font/roboto_bold"
+            app:layout_constraintStart_toStartOf="@id/mpnHeader"
+            app:layout_constraintTop_toBottomOf="@id/ltgcBody"/>
+
+        <TextView
+            android:id="@+id/epBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black"
+            android:text="Manage account attributes"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/epHeader"
+            app:layout_constraintTop_toBottomOf="@id/epHeader"/>
+
+        <Button
+            android:id="@+id/epButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:backgroundTint="@color/orange"
+            android:text="Manage"
+            android:fontFamily="@font/roboto_medium"
+            android:layout_marginEnd="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/epHeader" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

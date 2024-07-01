@@ -1,10 +1,58 @@
-<resources>
-    <string name="app_name">TravelHub</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">PlanHub</string>
+
+    <!--    Ian's Strings-->
+    <string name="home_title">Explore the world!</string>
+    <string name="categories">Categories</string>
+    <string name="all">All</string>
+    <string name="malls">Malls</string>
+    <string name="amusements">Amusements</string>
+    <string name="nature">Nature</string>
+    <string name="food">Food</string>
+    <string name="hotels">Hotels</string>
+    <string name="recommendation">Recommendations</string>
+    <string name="top_places">Top Places</string>
+    <string name="notification_bell">Notifcation Button</string>
+    <string name="top_reached">top_reached</string>
+    <string name="drag_handler">drag handler</string>
+    <string name="description">Description</string>
+    <string name="sample_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu amet tempor, in massa, habitasse habitasse fermentum, sed faucibus. Augue arcu, ac proin accumsan urna morbi diam nunc, tincidunt. Ac turpis amet vitae dui aliquam vitae nunc. Non enim, lorem duis maecenas odio Read More </string>
+    <string name="about">About</string>
+    <string name="photos">Photos</string>
+    <string name="reviews">Reviews</string>
+    <string name="add_to_plan">Add to plan</string>
+    <string name="placeImg">place image</string>
+    <string name="backbtn">back button</string>
+    <string-array name="recommended_places">
+        <item>Marina Bay Sands;Singapore;Singapore;Marina Bay Sands is an iconic integrated resort located in Singapore, renowned for its distinctive architecture and luxurious amenities. The complex includes a hotel with three towers connected by a unique rooftop SkyPark, which features an infinity pool offering stunning views of the city skyline. The resort also boasts a large casino, a shopping mall, an ArtScience Museum, multiple celebrity chef restaurants, a convention center, and a theater. Marina Bay Sands is a major tourist attraction and a symbol of modern Singapore.;5;https://cdn.getyourguide.com/img/tour/5aa8dede0ae60.jpeg/145.jpg</item>
+        <item tools:ignore="TypographyDashes">Gardens by the Bay;18 Marina Gardens Drive Bayfront Plaza;Singapore;Gardens by the Bay is a captivating nature park in Singapore, renowned for its futuristic Supertree Grove, which features towering vertical gardens adorned with exotic plants. The park also comprises two massive conservatories: the Flower Dome, showcasing a diverse array of flowers and plants from around the world, and the Cloud Forest, featuring a misty mountain and a stunning indoor waterfall. Gardens by the Bay offers visitors a unique blend of horticulture, sustainable design, and awe–inspiring architecture, making it a must–visit destination in Singapore.;4.5;https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/gbtb/carousel1-940x940.jpg</item>
+        <item>Singapore Flyer;30 Raffles Avenue;Singapore;At 165 metres tall, Singapore Flyer is a masterpiece of urban architecture and engineering that showcases not only the mesmerizing cosmopolitan cityscape of the tropical Lion City, but even the surrounding islands of Indonesia and parts of Malaysia in all their glory. In addition to offering panoramic views of Singapore\'s cosmopolitan cityscape, guests can also indulge in a flute of champagne, or savour the iconic Singapore Sling whilst hosted in a special themed capsule. Diners seeking both privacy and luxury can opt for a multi-sensory treat unlike any other with our Premium Sky Dining Flight, complete with a four-course dinner and an in-flight host.;4.5;https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Dikaiosp_210819_6963.jpg/1200px-Dikaiosp_210819_6963.jpg</item>
+        <item tools:ignore="TypographyDashes">Universal Studios Singapore;8 Sentosa Gateway Resorts World Sentosa;Singapore;Universal Studios Singapore is an exciting theme park located on Sentosa Island in Singapore, offering visitors a thrilling and immersive entertainment experience. It features seven themed zones, including Hollywood, New York, Sci–Fi City, Ancient Egypt, The Lost World, Far Far Away, and Madagascar, each filled with rides, attractions, and shows inspired by popular movies and television series. Visitors can enjoy adrenaline–pumping roller coasters, family–friendly rides, live entertainment, and character meet–and–greets with beloved Universal Studios characters such as Shrek, the Minions, and Transformers. Universal Studios Singapore is a must–visit destination for families, movie buffs, and thrill–seekers alike.;4.5;https://daniaexperiences.com/wp-content/uploads/2021/09/img_5952-1280x853-1.jpg?w=1024</item>
+        <item>Merlion Park;1 Fullerton Road One Fullerton Merlion Park;Singapore;Standing at 8.6 metres high and weighing 70 tonnes, the Merlion statue has a lion’s head and a fish’s body, and is housed here in this 2,500 square metre park.;4.0;https://www.trawell.in/admin/images/upload/935304121Merlion_Park_Singapore.jpg</item>
+        <item>Sentosa Island;Sentosa;Singapore;Sentosa is Singapore’s premier island resort getaway. This 500-hectare resort island is home to an exciting array of themed attractions, award-winning spa retreats, and resort accommodations alongside lush rainforests and golden sandy beaches. Popular attractions among business and leisure visitors include Wings of Time – an award winning night show, the iconic Sentosa Merlion, as well as Madame Tussauds Singapore.;4.0;https://media.tacdn.com/media/attractions-splice-spp-674x446/09/20/0a/27.jpg</item>
+        <item>Chinatown;Crot Trengganu;Singapore;For a fascinating peek into Singapore’s Chinese culture and history, Chinatown is good place to start. Here, you’ll enjoy a mix of heritage visits to museums, shopping as well as a good variety of food options, sure to leave a traveller happy and satisfied at the end of the day.;4;https://www.tripsavvy.com/thmb/SaVogXWJMWeQMF6OhNB2zmLO7-k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2_chinatown_street_market-5c459281c9e77c00018d54a2.jpg</item>
+        <item>Little India;60 Bukit Timah Road;Singapore;An experience for all five senses. Start at the Tekka Centre, a traditional wet market and food court where fresh meat, seafood, vegetables, fruits and dry goods are sold. Cruise down Serangoon Road to find more groceries, restaurants, teahouses, tailors and Mustafa Centre, a massive department store selling anything and everything. Visit during Deepavali, the Hindu festival of light, held in October or November.;4;https://media1.thrillophilia.com/filestore/uo9aelqlr7cvhxdhtf2dth5cfhrc_best-shopping-little-india.jpg.jpg</item>
+        <item tools:ignore="TypographyDashes">Clarke Quay;3 River Valley Road;Singapore;Clarke Quay is a vibrant riverside district in Singapore, renowned for its bustling nightlife, eclectic dining options, and lively entertainment scene. Set along the Singapore River, Clarke Quay is characterized by its colorful restored warehouses, which now house a plethora of restaurants, bars, nightclubs, and retail shops. Visitors can stroll along the waterfront promenade, enjoy al fresco dining, or embark on a river cruise to admire the city lights. Clarke Quay\'s energetic atmosphere, combined with its historic charm, makes it a popular destination for locals and tourists alike, especially after sunset when the area comes alive with music and revelry.;4.5;https://a.cdn-hotels.com/gdcs/production64/d654/961ecd9a-ea3a-4f52-822f-d5439bd0a804.jpg</item>
+        <item>ArtScience Museum;10 Bayfront Avenue Marina Bay Sands;Singapore;ArtScience Museum is an iconic cultural landmark in Singapore and the cultural component of Marina Bay Sands. With 21 gallery spaces, ArtScience Museum has held large-scale exhibitions by some of the world’s major artists, including Leonardo da Vinci, M.C. Escher, Salvador Dalí, Andy Warhol and Vincent Van Gogh since opening in February 2011. In addition, we have presented significant exhibitions that explore aspects of science including including particle physics, big data, robotics, palaeontology, marine biology and space exploration.;4;https://www.marinabaysands.com/content/dam/revamp/ASMrevamp/itineraries/2018%20Brand%20Stock%20Image%20ASM%20(9)_Preparing%20for%20your%20visit.jpg</item>
+    </string-array>
+    <string-array name="top_places">
+        <item>Lau Pa Sat;18 Raffles Quay;Singapore;Lau Pa Sat — where history, heritage architecture, and delectable local food blends seamlessly in a must-visit food and retail destination for both locals and visitors. With a rich 130-year history, this distinctive octagonal architectural masterpiece stands as a timeless icon and proud showpiece of Singapore’s skyline. Designated as a national monument on June 28, 1973, Lau Pa Sat is a true Singaporean landmark. As one of Singapore’s largest hawker centers spanning over 52,000 square feet and housing more than 80 hawkers and tenants, visitors are invited to revel in the elegant old-world charm of Singapore’s \'Best Looking\' Food Hall. Lau Pa Sat houses Singapore’s most iconic hawker center,;4.0;https://media-cdn.tripadvisor.com/media/photo-s/2a/12/53/26/lau-pa-sat.jpg</item>
+        <item>National Orchid Garden;1 Cluny Rd Within the Singapore Botanic Gardens;Singapore;With over 1000 species and 2000 hybrids on display, the splendour of these gorgeous blooms is absolutely a sight to behold at the National Orchid Garden.;4.5;https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Entrance_National_Orchid_Garden_Singapore_Feb23_D72_25450.jpg/1200px-Entrance_National_Orchid_Garden_Singapore_Feb23_D72_25450.jpg</item>
+        <item>Park Royal Collection;6 Raffles Boulevard,Singapore;Sitting in the heart of the central business district and Marina Bay, with panoramic views of the Singapore city skyline, the 583-room PARKROYAL COLLECTION Marina Bay, Singapore is the country’s first ‘Garden-in-a-Hotel’. An champion of sustainability, environmental responsibility and advocate for green innovations in the hospitality industry, the hotel is home to Southeast Asia’s largest indoor sky-lit atrium, containing over 2,400 plants, trees, shrubs and groundcovers from more than 60 varieties of flora spread across 15,000 square feet of space throughout. Distinctive dining options are available for every palate and occasion, from international and Asian culinary creations at Peppermint, progressive Cantonese cuisine at Peach Blossoms, a selection of over 90 varieties of whiskies and craft cocktails at Portman’s Bar, and alfresco dining at Skyline Bar. A rooftop Urban Farm spanning 150 square metres houses over 60 varieties of fruits, vegetables, herbs and edible flowers, forming the backbone of the hotel’s farm-to-table, farm-to-bar and farm-to-spa concepts. The 25-metre swimming pool comes alive with 1,380 glowing fibre optic lights at dusk, and a refreshing dip in the pool articulates an experience not unlike the sensation of floating amongst a star-studded galaxy. Catering to environmentally conscious travellers, the hotel focuses on stylish contemporary vibes brought to life through biophilic design, iconic architecture, eco-friendliness and lifestyle experiences.;4.5;https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/53/52/ba/sky-bridge.jpg?w=700</item>
+        <item>Singapore Botanic Gardens;1 Cluny Road;Singapore;This national park is open daily and features beautiful lakes, animals, flowers and plants, including one of the region\'s first rubber tree orchards.;4.5;https://www.visitsingapore.com/content/dam/desktop/global/see-do-singapore/nature-wildlife/singapore-botanic-gardens-carousel01-rect.jpg</item>
+        <item>Jewel Changi Airport;78 Airport Boulevard;Singapore;This national park is open daily and features beautiful lakes, animals, flowers and plants, including one of the region\'s first rubber tree orchards.;4.5;https://media.timeout.com/images/105744422/image.jpg</item>
+        <item>National Museum of Singapore;93 Stamford Road National Museum of Singapore;Singapore;
+The National Museum of Singapore is the oldest museum in Singapore, tracing its roots back to 1849. Located in the heart of the city, it is a cultural institution dedicated to preserving the heritage and history of Singapore. The museum showcases a diverse range of exhibits, artifacts, and interactive displays that chronicle the island nation\'s rich past, from its early days as a trading port to its emergence as a modern metropolis. Visitors can explore various galleries that cover topics such as Singapore\'s colonial history, cultural diversity, and significant milestones. With its engaging exhibitions and immersive experiences, the National Museum of Singapore offers a compelling journey through the nation\'s story, making it a must-visit destination for locals and tourists alike.;4.5;https://media.timeout.com/images/101805235/image.jpg</item>
+        <item tools:ignore="TypographyDashes">Singapore River Cruise;CLARK QUAY JETTY;Singapore;Cruising since 1987. For more than a decade and a half, bumboats have been plying the Singapore River. The story of Singapore River Cruise begins in 1987. The "Clean Rivers Campaign" of 1983 saw the relocation of bumboats to Pasir Panjang. The familiar painted faces of our Bumboats were due to disappear from its home, until SRC was awarded the tender license to run river services here - the first also, to operate such services along the river. We are entering a new chapter in the Singapore River story. In this modern age, Bumboats on this historic waterway remind us of its rustic charm. SRC has been preserving the heritage of this important river for more than two decades. Its bumboats have become the icon of our river to visitors and locals alike. 2008 was a year when our iconic bumboats underwent a transformation. The diesel-powered engines of SRC\'s fleet made way for a new generation of electric ones that boast quieter engines and zero CO2 emissions. These are the very boats that operate along the Singapore River today. SRC is committed to greater excellence. Under its strong management, the company has developed a firm network of channel intermediaries from government agencies, embassies, event organizers and other operators in the tourism sector, both local and overseas. From a humble fleet of 4 bumboats in 1987, SRC has since increased its number to 24 today with a few new additions coming onboard soon.;4.0;https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_720/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/pzahsj8bznfy22dt2pnb/SingaporeRiverCruise.jpg</item>
+    </string-array>
+
+    <!--    Yong Shyan's Strings-->
+
     <string name="converter_name">Currency\nConverter</string>
     <string name="fromamount">From</string>
     <string name="toamount">To</string>
     <string name="result">Result</string>
-    <string-array name = "themes">
+    <string-array name="themes">
         <item>Default</item>
         <item>Watermelon</item>
         <item>Neon</item>
@@ -182,4 +230,130 @@
         <item>ZMW</item>
         <item>ZWL</item>
     </string-array>
+
+    <!--    Rishi's Strings-->
+    <string name="itinerary">Itinerary:</string>
+    <string name="tobringitems">To Bring:</string>
+    <string name="note">Notes:</string>
+    <string name="remidners">Reminders:</string>
+    <string name="start_time">Start Time:</string>
+    <string name="end_time">End Time:</string>
+    <string name="Enter_event_name">Enter event name</string>
+    <string name="Enter_Notes">Enter Note</string>
+    <string name="Enter">Enter</string>
+    <string name="Back">Back</string>
+    <string name="Save">Save</string>
+    <string name="A01_Jan_2024">01 Jan 2024</string>
+    <string name="Itinerary">Itinerary</string>
+    <string name="EVENT_ID">Event ID: </string>
+    <string name="EVENT_NAME">Event Name: </string>
+    <string name="EVENT_CAT">Category: </string>
+    <string name="note_TEXT">Notes</string>
+    <string name="TITLE_HINT">Enter Title</string>
+
+
+    <string-array name="event_categories">
+        <item>Sightseeing</item>
+        <item>Sports</item>
+        <item>Business</item>
+        <item>Family</item>
+        <item>Rest</item>
+        <item>Fun</item>
+    </string-array>
+    <string name="plus">+</string>
+    <string-array name="time_hours">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </string-array>
+    <string-array name="time_min">
+        <item>00</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+        <item>36</item>
+        <item>37</item>
+        <item>38</item>
+        <item>39</item>
+        <item>40</item>
+        <item>41</item>
+        <item>42</item>
+        <item>43</item>
+        <item>44</item>
+        <item>45</item>
+        <item>46</item>
+        <item>47</item>
+        <item>48</item>
+        <item>49</item>
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+        <item>57</item>
+        <item>58</item>
+        <item>59</item>
+    </string-array>
+
+    <!--    Vincent and Brandon String-->
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

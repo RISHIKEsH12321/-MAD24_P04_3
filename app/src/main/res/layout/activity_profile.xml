@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:paddingBottom="80dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Pmain"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".Profile">
+
+            <TextView
+                android:id="@+id/pageHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="25sp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <ImageView
+                android:id="@+id/profilePic"
+                android:layout_width="192dp"
+                android:layout_height="192dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_profile"
+                app:layout_constraintTop_toBottomOf="@id/pageHeader"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/usernameHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="20sp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profilePic"
+                />
+
+            <ImageView
+                android:id="@+id/settingsButton"
+                app:srcCompat="@drawable/baseline_settings_24"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <Button
+                android:id="@+id/tripsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Trips"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                android:textColor="@color/unselectedFilterText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/transparent"
+                android:layout_marginTop="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/journalHeader"
+                app:layout_constraintTop_toBottomOf="@+id/profilePic"/>
+
+            <Button
+                android:id="@+id/journalHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Journals"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                android:textColor="@color/unselectedFilterText"
+                android:backgroundTint="@color/transparent"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/tripsHeader"
+                app:layout_constraintStart_toEndOf="@id/tripsHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <FrameLayout
+                android:id="@+id/profileFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@id/journalHeader"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="-18dp"
+        android:background="@color/white"
+        app:itemIconSize="35dp"
+        app:itemIconTint="@drawable/bottom_nav_item_selector"
+        app:itemActiveIndicatorStyle="@android:color/transparent"
+        app:itemRippleColor="@color/white"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

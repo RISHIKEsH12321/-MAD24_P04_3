@@ -1,0 +1,206 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="915dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/placePhotoImg"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:src="@drawable/bali"
+        android:scaleType="centerCrop" />
+
+    <ImageButton
+        android:id="@+id/viewPlaceBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/back_btn_icon"
+        android:background="@drawable/circular_btn_bg"
+        android:padding="10dp"
+        android:contentDescription="@string/backbtn" />
+
+    <FrameLayout
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="850dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:background="@drawable/view_activity_scrollview_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+                android:id="@+id/dragHandler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dragHandler">
+
+                <TextView
+                    android:id="@+id/placeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingHorizontal="50dp"
+                    android:paddingBottom="18dp"
+                    android:text="Name of Place"
+                    android:textColor="@color/main_app_orange"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/locationIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="45dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/placeLocation"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/placeLocation"
+                    app:srcCompat="@drawable/view_place_location_marker" />
+
+                <TextView
+                    android:id="@+id/placeLocation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:maxWidth="250dp"
+                    android:paddingBottom="20dp"
+                    android:text="Location of Place"
+                    android:textColor="@color/view_place_font_color"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toEndOf="@id/locationIcon"
+                    app:layout_constraintTop_toBottomOf="@id/placeName" />
+
+                <TextView
+                    android:id="@+id/ratingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingStart="50dp"
+                    android:paddingBottom="20dp"
+                    android:text="4.8"
+                    android:textColor="@color/view_place_font_color"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:paddingBottom="20dp"
+                    android:layout_marginStart="10dp"
+                    android:rating="0"
+                    android:stepSize="0.5"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    android:progressTint="@color/main_app_orange"
+                    app:layout_constraintStart_toEndOf="@id/ratingText"
+                    app:layout_constraintTop_toBottomOf="@id/locationIcon" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/PlaceDetailsTabs"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    app:tabIndicatorColor="@color/main_app_orange"
+                    app:tabSelectedTextColor="@color/main_app_orange"
+                    app:tabTextColor="@color/view_place_font_color"
+                    app:tabBackground="@color/transparent"
+                    android:backgroundTint="@color/transparent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ratingText"
+                    android:layout_marginStart="20dp"
+                    app:tabPaddingStart="0dp"
+                    app:tabPaddingEnd="0dp"
+                    app:tabRippleColor="@color/transparent"
+                    app:tabTextAppearance="@style/CustomTabTextAppearance"
+                    app:tabMode="fixed"
+                    >
+
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/aboutTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="About" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/reviewsTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reviews" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/photosTab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Photos" />
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <View
+                    android:id="@+id/lineDivider"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@color/lineDivider"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/PlaceDetailsTabs" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/fragmentTab"
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lineDivider"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:paddingTop="55dp"
+        android:background="@drawable/add_to_btn_blur_background">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addToPlanBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/view_place_add_to_plan_btn"
+            android:backgroundTint="@color/main_app_orange"
+            android:fontFamily="@font/roboto_bold"
+            android:layout_marginHorizontal="50dp"
+            android:text="@string/add_to_plan"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

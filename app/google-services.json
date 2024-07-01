@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "544495806484",
+    "firebase_url": "https://planhub-ebe12-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "planhub-ebe12",
+    "storage_bucket": "planhub-ebe12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544495806484:android:600ccdec31334dea681f01",
+        "android_client_info": {
+          "package_name": "sg.edu.np.mad.travelhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCizUelBnloWJ0Kjn5BW8B19S2lh4RXQHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

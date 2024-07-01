@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:id="@+id/EMScrollView"
+    android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:stools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="35dp"
+    stools:context=".EventManagement">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/EMmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/back_btn_bg"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/EMmain"
+            app:layout_constraintBottom_toTopOf="@id/EMcategoryDropdown"
+            />
+
+        <EditText
+            android:id="@+id/EMtitle"
+            android:layout_width="240dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/TITLE_HINT"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/EMmain" />
+
+        <ImageButton
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@drawable/baseline_assignment_add_24"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+
+            android:layout_marginEnd="25dp"
+            android:layout_marginTop="8dp"
+
+            app:layout_constraintTop_toTopOf="@+id/EMmain"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <Spinner
+            android:id="@+id/EMcategoryDropdown"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EMtitle"
+            />
+
+
+        <TextView
+            android:id="@+id/EMitinerary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Itinerary"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/EMcategoryDropdown"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_add_24"
+            android:background="@drawable/add_btn"
+            android:id="@+id/EMitineraryAddEventNameBtn"
+            app:layout_constraintBottom_toTopOf="@+id/EMdatePicker"
+            app:layout_constraintStart_toEndOf="@+id/EMitinerary"
+            app:layout_constraintTop_toBottomOf="@+id/EMcategoryDropdown" />
+
+
+        <Button
+            android:id="@+id/EMdatePicker"
+            style="?android:spinnerStyle"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="openDatePicker"
+            android:text="@string/A01_Jan_2024"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EMitinerary" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/EMrvViewItinerary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:maxHeight="200dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EMdatePicker"
+
+            />
+
+
+
+        <TextView
+            android:id="@+id/EMtoBringList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To Bring"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/EMrvViewItinerary"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_add_24"
+            android:background="@drawable/add_btn"
+
+            android:id="@+id/EMitineraryAddBringItemBtn"
+            app:layout_constraintTop_toBottomOf="@+id/EMrvViewItinerary"
+            app:layout_constraintStart_toEndOf="@+id/EMtoBringList"
+            app:layout_constraintBottom_toTopOf="@id/EMrvViewBringList"
+
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/EMrvViewBringList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:maxHeight="200dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EMtoBringList"
+            />
+
+
+        <TextView
+            android:id="@+id/EMattchment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attachments"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/EMrvViewBringList"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:id="@+id/EMattchmentBtn"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_add_24"
+            android:background="@drawable/add_btn"
+
+            app:layout_constraintBottom_toTopOf="@id/EMattchmentScrollView"
+            app:layout_constraintTop_toBottomOf="@+id/EMrvViewBringList"
+            app:layout_constraintStart_toEndOf="@+id/EMattchment"
+            />
+
+
+        <HorizontalScrollView
+
+            android:id="@+id/EMattchmentScrollView"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:maxHeight="100dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EMattchment">
+
+            <LinearLayout
+                android:id="@+id/EMattchmentContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:isScrollContainer="true"
+
+                android:maxHeight="100dp"
+
+
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/EMreminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reminder"
+            android:textSize="30sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toBottomOf="@+id/EMattchmentScrollView"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_add_24"
+            android:background="@drawable/add_btn"
+
+            android:id="@+id/EMreminderAddBtn"
+            app:layout_constraintBottom_toTopOf="@id/EMreminderItems"
+
+            app:layout_constraintTop_toBottomOf="@+id/EMattchmentScrollView"
+            app:layout_constraintStart_toEndOf="@+id/EMreminder"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/EMreminderItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:maxHeight="200dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/EMreminder"
+            />
+
+
+        <TextView
+            android:id="@+id/EMnotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/note_TEXT"
+            android:textSize="30sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:textStyle="bold"
+
+            app:layout_constraintTop_toBottomOf="@+id/EMreminderItems"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/EMnotesItem"
+            />
+
+        <ImageButton
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/baseline_add_24"
+            android:background="@drawable/add_btn"
+
+            android:id="@+id/EMnotesBtn"
+            app:layout_constraintBottom_toTopOf="@+id/EMnotesItem"
+            app:layout_constraintTop_toBottomOf="@+id/EMreminderItems"
+            app:layout_constraintStart_toEndOf="@+id/EMnotes"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/EMnotesItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:maxHeight="200dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/EMnotes"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

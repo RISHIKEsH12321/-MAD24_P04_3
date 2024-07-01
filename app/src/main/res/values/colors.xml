@@ -2,23 +2,48 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="grey">#FF808080</color>
+    <color name="grey">#808080</color>
+    <color name="unselectedFilterBackground">#00000000</color>
+    <color name="unselectedFilterText">#B8B8B8</color>
+    <color name="selectedFilterBackground">#FFF0D9</color>
+    <color name="selectedFilterText">#FFFFFF</color>
+    <color name="navBottomBackground">#FFFFFF</color>
+    <color name="selectedNavBtn">#FFA31A</color>
+    <color name="unselectedNavBtn">#9F9F9F</color>
+    <color name="circular_btn_bg">#CCEAEAEA</color>
+    <color name="main_app_orange">#FFA31A</color>
+    <color name="orange">#FF831A</color>
+    <color name="lineDivider">#4D6F7789</color>
+    <color name="view_place_font_color">#6F7789</color>
+
+<!--    Yong Shyan Color's-->
     <color name="light_grey">#FFD3D3D3</color>
     <color name="main_orange">#FFFFA31A</color>
+    <color name="main_orange_bg">#FFF0D9</color>
     <color name="transparent">#00FFFFFF</color>
 
     <color name="nn_pink">#FE39A4</color>
     <color name="nn_cyan">#53E4D4</color>
+    <color name="nn_cyan_bg">#C7DDDA</color>
 
     <color name="wm_green">#75B855</color>
     <color name="wm_red">#DB6161</color>
+    <color name="wm_red_bg">#E4D1D1</color>
 
     <color name="pro_purple">#FF6969B4</color>
-    <color name="pro_orange">#F1810B</color>
+    <color name="pro_green">#00FF04</color>
+    <color name="pro_green_bg">#D1FFD2</color>
 
     <color name="deu_yellow">#FFB700</color>
     <color name="deu_blue">#60B0FF</color>
+    <color name="deu_blue_bg">#E9F4FF</color>
 
     <color name="tri_orange">#D86F00</color>
     <color name="tri_green">#179C00</color>
+    <color name="tri_green_bg">#E9FFE6</color>
+
+    <color name="selected_date_color">#FF0000</color> <!-- Red color for selected date -->
+    <color name="focused_date_color">#00FF00</color> <!-- Green color for focused date -->
+    <color name="default_date_color">#000000</color> <!-- Black color for default date -->
+
 </resources>
